@@ -1,0 +1,30 @@
+Angular Intermediate
+
+* Angular Installation
+* What is Angular CLI and its commands
+* Components
+* Intermediate Data Binding
+* String Interpolation
+* Event Binding
+* Two Way Data binding
+* Directives
+    * nglf, ngFor
+* Debugging angular project
+* Pipes
+* Forms (Reactive & Template Driven Form)
+* Adding Styles
+
+Angular Advanced
+
+* Child, Parent Communication
+* Services
+* Hooks
+* Dependency Injection (Easy, Advanced)
+* Routing
+* Observables
+* Making HTTP Requests
+* Route Guards
+* Modules & Optimization
+* NgRx for State Management
+* Deployment
+* Testing (Jasmine)
