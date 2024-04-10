@@ -1,0 +1,68 @@
+28.02.24
+  -ROUTES
+  ->1.npm install @angular/router
+  ->2.define routes in the app-routing.module.ts
+  ->3. Add this in the above file and import the router in the same
+           const routes: Routes = 
+             [
+                { path: '', component: HomeComponent }, // define routes and corresponding components
+                  // Add more routes as needed
+              ];
+  ->4.now implement the the route in ts file (eg.home.component.ts) and link link the route in your html file (eg. <a routerLink="/">Home</a>)
+  ->5.now add the router-outlet in the html file(eg.<router outlet></router-outlet>).
+
+
+- Feature Module
+  ->1.Eager Loading:
+     This is like having all the toolboxes ready at the beginning of your project.
+     In this Angular loads all the necessary modules when the app starts. So, every module is available right from the 
+     beginning.Because of this, this can be not sutable for large appln. this slow our 
+     down our appln.
+  ->2.Lazy Loading:
+     Lazy loading is more like fetching the toolboxes only when you need them.
+     In this, Angular loads modules only when they are required, typically When the user navigates to a certain part of 
+     the application that needs those modules.
+     Saving time and resources because you're not loading everything upfront.
+
+  ->Why PreLoading if we have LazyLoading?
+    Preloading is advantageous over lazy loading because it anticipates user actions, loading relevant modules in the background, resulting in faster     navigation. Unlike lazy loading, which waits for user interaction, preloading ensures a smoother experience by proactively preparing frequently accessed     sections of the app, minimizing delays and loading screens. 
+
+ -How we can create custom preloading?
+  ->Step-1: Use data property in route configuration. data is a property of Route interface. data provides
+   additional data to component via Activated Route. The data property can be used in route configuration as following.
+
+    const routes: Routes = [
+    {
+      path: 'country',
+      loadChildren: 'app/country/country.module#CountryModule',
+      data: { preload: true } },-------------<**
+    ];
+  ->Step-2: Create a service by implementing Preloading Strategy class and override its preload method.
+            Here we are creating a custom preloading strategy with name *CustomPreloadingStrategy*.
+            @Injectable()
+             export class Custom Preloading Strategy implements PreloadingStrategy {
+             preload (route: Route, load: () => Observable<any>): Observable<any> {
+            if (route.data && route.data['preload']) {
+            return load();
+           } else {
+                return Observable.of (null);
+            }
+          } 
+        }
+  ->Step-3: To enable our custom preloading strategy CustomPreloading Strategy, we need to assign it
+            to preloadingStrategy property in RouterModule.forRoot method in application routing module.
+            @NgModule({
+             imports: [
+             RouterModule. for Root (routes,
+             {
+              preloadingStrategy: Custom PreloadingStrategy
+             })
+            ],
+           })
+          export class AppRoutingModule { }
+  ->Step-4: Configure our custom preloading strategy Custom Preloading Strategy with providers metadata in
+            application routing module.
+            @NgModule({
+            providers: [ Custom PreloadingStrategy ],
+           })
+           export class AppRoutingModule { }
