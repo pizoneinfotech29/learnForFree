@@ -1,0 +1,106 @@
+<div mat-dialog-title>User Form</div>
+
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="content">
+  <div class="row">
+
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Ex. shiv" formControlName="name" />
+    <mat-error *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+      Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Full-Name</mat-label>
+    <input matInput placeholder="Ex. shiv Khera" formControlName="fullname" />
+    <mat-error *ngIf="userForm.get('fullname')?.invalid && userForm.get('fullname')?.touched">
+      full-Name is required
+    </mat-error>
+  </mat-form-field>
+    
+   
+  </div>
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label> Email</mat-label>
+      <input matInput type="email" placeholder="Ex. anurag709@gmail.com" formControlName="email" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Age</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="age" />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-radio-group aria-label="Select an option" formControlName="gender">
+      <mat-label><b>Gender</b></mat-label>
+      <mat-radio-button value="male">Male</mat-radio-button>
+      <mat-radio-button value="female">Female</mat-radio-button>
+      <mat-radio-button value="others">Others</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let cat of category" [value]="cat">{{
+          cat
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+ </div>
+
+ <mat-form-field appearance="outline">
+  <mat-label>Occupation</mat-label>
+  <mat-select formControlName="occupationList" (selectionChange)="onOccupationChange($event.value)">
+    <mat-option *ngFor="let occ of occupationList" [value]="occ">{{ occ }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<!-- Job Details -->
+<div *ngIf="showJobDetails">
+  <mat-form-field appearance="outline">
+    <mat-label>CTC</mat-label>
+    <input matInput formControlName="ctc" type="number" placeholder="Enter CTC" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Experience</mat-label>
+    <input matInput formControlName="exp" type="number" placeholder="Enter Experience" />
+  </mat-form-field>
+</div>
+
+<!-- Business Details -->
+<div *ngIf="showBusinessDetails">
+  <mat-form-field appearance="outline">
+    <mat-label>Type</mat-label>
+    <input matInput formControlName="btype" placeholder="Enter Type" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Number of Employees</mat-label>
+    <input matInput formControlName="numofemp" type="number" placeholder="Enter Number of Employees" />
+  </mat-form-field>
+</div>
+
+
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label> Enter Phone Number</mat-label>
+      <input matInput  type="text" placeholder="Ex.7765905421"  formControlName="phone"/>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions class="action">
+  <button mat-raised-button color="warn" type="button" [mat-dialog-close]="false">cancle</button>
+  <button mat-raised-button color="primary" type="submit">{{data? 'update': 'save'}}</button>
+</div>
+</form>

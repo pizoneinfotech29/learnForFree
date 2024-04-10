@@ -1,0 +1,310 @@
+<!-- ==========HTML FILE======== -->
+<div class="dropdown" style="margin-top: 3%; margin-left: 10%">
+  <button
+    class="btn btn-primary dropdown-toggle"
+    type="button"
+    id="basicDropdown"
+    data-bs-toggle="dropdown"
+    aria-haspopup="false"
+    aria-expanded="false"
+    style="width: 7%; font-size: 20px"
+  >
+    +
+  </button>
+  <ul class="dropdown-menu">
+    <app-table-button (save)="saveTableData($event)" (cancel)="cancelTable()"></app-table-button>
+    <app-folder-button (save)="saveFolderData($event)" (cancel)="cancelFolder()"></app-folder-button>
+  </ul>
+</div>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="saveData()" #formData="ngForm">
+        <div class="form-group">
+          <label for="inputData">Input Data:</label>
+          <input type="text" class="form-control" id="inputData" name="inputData" [(ngModel)]="inputData" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-secondary" (click)="clearInput()">Clear</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-your-component',
+  templateUrl: './your-component.component.html',
+  styleUrls: ['./your-component.component.css']
+})
+export class YourComponent {
+  inputData: string = '';
+
+  saveData() {
+    // Here you can save the inputData to your desired location, such as a database or a service.
+    console.log('Input Data Saved:', this.inputData);
+    // You can also reset the form after saving the data if needed.
+    // this.formData.reset();
+  }
+
+  clearInput() {
+    // Clear the input field and reset the form
+    this.inputData = '';
+    // this.formData.reset();
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

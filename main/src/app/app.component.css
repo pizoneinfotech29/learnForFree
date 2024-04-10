@@ -1,0 +1,18 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .task{
+    margin-right: 45%;
+    font-weight: bold;
+    font-size: 20px;
+
+  }
+
+.bi-folder{
+  cursor: pointer;
+  margin-left: 15%;
+  }
+
+
+  

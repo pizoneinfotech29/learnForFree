@@ -1,0 +1,78 @@
+<!-- =============== Header =============== -->
+<nav class="navbar bg-info">
+  <div class="container-fluid">
+    <span class="navbar-text">
+      <img
+        src="https://www.reshot.com/preview-assets/icons/NY46M9DGFU/github-NY46M9DGFU.svg"
+        width="35"
+        height="40"
+        alt=""
+      />
+    </span>
+    <div class="task">Angular Task = Two</div>
+  </div>
+</nav>
+
+<!-- ================= Button ================ -->
+<!-- <button type="button" class="btn btn-outline-info btn-lg" 
+  style="margin-top: 3%; margin-left: 10%;"
+  >+</button> -->
+
+<div class="dropdown" style="margin-top: 3%; margin-left: 10%">
+  <button
+    class="btn btn-primary dropdown-toggle"
+    type="button"
+    id="basicDropdown"
+    data-bs-toggle="dropdown"
+    aria-haspopup="false"
+    aria-expanded="false"
+    style="width: 7%; font-size: 20px"
+  >
+    +  
+  </button>
+  <ul class="dropdown-menu" >
+    <!-- ================= Table Button ================ -->
+
+    <li style="cursor: pointer; height: 30%;"  type="button" (click)="inputdata()"   #item1>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"  
+        fill="currentColor"
+        class="bi bi-table"
+        viewBox="0 0 16 16"
+        style="margin-left: 15%;"
+      >
+        <path 
+          d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"
+        />
+      </svg>
+      -Table
+
+
+      @if(openintput === true){
+        
+      }
+    </li>
+     
+
+    <hr />
+
+    <!-- ================= Folder Button ================ -->
+    <li style="cursor: pointer;">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        fill="currentColor"
+        class="bi bi-folder"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z"
+        />
+      </svg>
+      -Foler
+    </li>
+  </ul>
+</div>
